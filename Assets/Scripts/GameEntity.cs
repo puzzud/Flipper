@@ -5,6 +5,7 @@ public class GameEntity : MonoBehaviour {
 
   public float speed = 5.0f;
 
+  // TODO: Not used? Needs improvement and refactor.
   public static bool getAbovePosition( GameObject gameObject, Vector3 position )
   {
     position = gameObject.transform.position;
@@ -19,6 +20,17 @@ public class GameEntity : MonoBehaviour {
     }
 
     position.y += yOffset;
+
+    return true;
+  }
+
+  //! Make this GameEntity look at a GameObject without
+  //! pivoting up or down (looks straight head but turns).
+  public bool lookAtStraight(GameObject lookAtObject)
+  {
+    Vector3 lookAtStraightPosition = lookAtObject.transform.position;
+    lookAtStraightPosition.y = transform.position.y;
+    transform.LookAt(lookAtStraightPosition);
 
     return true;
   }
