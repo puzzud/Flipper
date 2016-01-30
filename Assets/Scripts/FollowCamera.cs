@@ -5,6 +5,8 @@ public class FollowCamera : MonoBehaviour {
 
   public GameObject global;
   public GameObject objectToFollow;
+  public Vector3 direction;
+  public int distance;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +28,7 @@ public class FollowCamera : MonoBehaviour {
 	void LateUpdate () {
     if (objectToFollow != null)
     {
+      transform.position = (distance * direction) + objectToFollow.transform.position;
       transform.LookAt(objectToFollow.transform);
     }
     else
