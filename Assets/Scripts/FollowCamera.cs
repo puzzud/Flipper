@@ -24,6 +24,19 @@ public class FollowCamera : MonoBehaviour {
 	
 	// Update is called once per frame (use LateUpdate for cameras)
 	void LateUpdate () {
-    transform.LookAt(objectToFollow.transform);
+    if (objectToFollow != null)
+    {
+      transform.LookAt(objectToFollow.transform);
+    }
+    else
+    {
+      Global g = global.GetComponent<Global>();
+      if (g == null)
+      {
+        return;
+      }
+
+      objectToFollow = g.hero;
+    }
 	}
 }
