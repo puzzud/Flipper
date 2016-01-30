@@ -55,11 +55,28 @@ public class MonsterSpawner : MonoBehaviour {
     GameObject spawnPoint = getRandomSpawnPoint();
     if (spawnPoint == null)
     {
+      UnityEngine.Debug.Log("Could not find a spawn point.", this);
       return false;
     }
-    
-    Instantiate(monsterPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-    
+
+    // Get the distance between the origin of the monsterPrefab's rigid body (or self as fallback)
+    // to its bottom and then spawn its above
+    // the grounded spawn point.
+
+    // Add the distance between transform.position and bounds.min.y to transform.position in order to move your object up so the bottom of the mesh's bounding box is on the plane.
+    float yOffset = 0.0f;
+
+    Renderer renderer = monsterPrefab.GetComponent<Renderer>();
+    if( renderer )
+    {
+      // TODO: Using renderer might not be perfect.
+      yOffset = monsterPrefab.transform.position.y - renderer.bounds.min.y;
+    }
+
+    Vector3 spawnPosition = spawnPoint.transform.position;
+    spawnPosition.y += yOffset;
+    Instantiate(monsterPrefab, spawnPosition, spawnPoint.transform.rotation);
+
     setNextSpawnTime();
 
     return true;
