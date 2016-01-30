@@ -5,7 +5,7 @@ using System.Diagnostics;
 public class MonsterSpawner : MonoBehaviour {
 
   public float minInterval = 2.0f;
-  public float maxInterval = 12.0f;
+  public float maxInterval = 4.0f;
 
   Stopwatch stopWatch = new Stopwatch();
 

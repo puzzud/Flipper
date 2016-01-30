@@ -19,18 +19,20 @@ public class BoxMonsterAi : MonoBehaviour {
       return globalList[0].hero;
     }
 
+    UnityEngine.Debug.Log("Could not find hero.", this);
+
     return null;
   }
 
   void faceHero()
   {
     GameEntity entity = GetComponent<GameEntity>();
-    if (entity)
+    if (entity == null)
     {
       return;
     }
 
-    if (hero)
+    if (hero == null)
     {
       return;
     }
@@ -39,21 +41,52 @@ public class BoxMonsterAi : MonoBehaviour {
   }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
     GameEntity entity = GetComponent<GameEntity>();
-    if (entity)
+    if (entity == null)
     {
+      //UnityEngine.Debug.Log("Monster is not an entity?", this);
       return;
     }
 
-    if (hero)
+    if (hero == null)
     {
+      //UnityEngine.Debug.Log("Could not find a spawn point.", this);
       return;
     }
 
     entity.lookAtStraight(hero);
 
     // Move towards player at such a speed.
-    transform.position = Vector3.MoveTowards(transform.position, hero.transform.position, entity.speed * Time.deltaTime);
+    //Collider collider = GetComponent<Collider>();
+    
+    //Rigidbody rigidBody = GetComponent<Rigidbody>();
+    /*if (rigidBody)
+    {
+      UnityEngine.Debug.Log("HELP!!", this);
+
+      Vector3 monsterVelocity = new Vector3();
+      monsterVelocity = (hero.transform.position - transform.position) * entity.speed;
+      Vector3.Normalize(monsterVelocity);
+
+      //rigidBody.velocity = monsterVelocity;
+      //rigidBody.MovePosition( hero.transform.position );
+
+      //rigidBody.velocity = monsterVelocity;// monsterVelocity;
+      //transform.position = Vector3.MoveTowards(transform.position, hero.transform.position, entity.speed * Time.deltaTime);
+    }
+    else
+    {
+      UnityEngine.Debug.Log("HREAALLLY!!", this);
+    }*/
+
+    Vector3 sameYLevelPosition = hero.transform.position;
+    sameYLevelPosition.y = transform.position.y;
+    transform.position = Vector3.MoveTowards(transform.position, sameYLevelPosition, entity.speed * Time.deltaTime);
 	}
+
+  void OnTriggerEnter(Collider other)
+  {
+    UnityEngine.Debug.Log("Collisino!!", this);
+  }
 }
