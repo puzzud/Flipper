@@ -674,6 +674,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1860717612}
+  - 114: {fileID: 1860717613}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -693,6 +694,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1860717613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860717611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5763d2328bb53f241b6fa101b5f6d8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minInterval: 2
+  maxInterval: 12
+  monsterPrefab: {fileID: 149828, guid: d4b3c728bc7a2f84ead4070b0fe07df4, type: 2}
+  spawnPoints:
+  - {fileID: 831013676}
+  - {fileID: 921241705}
+  - {fileID: 1625445439}
+  - {fileID: 432414556}
 --- !u!1 &2063573795
 GameObject:
   m_ObjectHideFlags: 0
