@@ -5,7 +5,8 @@ public class ProjectileMovement : MonoBehaviour {
 
   public Vector3 movementDirection;
   public Vector3 startLocation;
-  public int speed;
+  public float speed;
+  public float accelerationConstant;
   public int maxDistance;
   public float distance;
   public Weapon weapon;
@@ -13,11 +14,14 @@ public class ProjectileMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     maxDistance = 30;
+    speed = 30;
+    accelerationConstant = 1.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
     transform.position = Vector3.MoveTowards(transform.position, movementDirection + transform.position, speed * Time.deltaTime);
+    speed += accelerationConstant;
 
     distance = Vector3.Distance(startLocation, transform.position);
     if ( distance > maxDistance)
