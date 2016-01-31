@@ -8,7 +8,6 @@ public class HeroControl : MonoBehaviour {
   public Vector3 forwardDir;
   Vector3 movement = Vector3.zero;
 
-
 	// Use this for initialization
 	void Start () {
     controller = GetComponent<CharacterController>();

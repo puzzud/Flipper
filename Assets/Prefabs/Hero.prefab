@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11424174}
   - 64: {fileID: 6499062}
   - 114: {fileID: 11483568}
+  - 114: {fileID: 11491486}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -103,6 +104,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &11491486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378caddf86b3bc24784bc0fa6eee0863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 159806, guid: 175cb1ead82bfab4e9172191f7211035, type: 2}
+  cooldown: 0
+  speed: 10
 --- !u!143 &14313380
 CharacterController:
   m_ObjectHideFlags: 1
@@ -138,6 +153,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 159806, guid: 175cb1ead82bfab4e9172191f7211035, type: 2}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
