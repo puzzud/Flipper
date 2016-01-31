@@ -120,6 +120,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 159806, guid: 175cb1ead82bfab4e9172191f7211035, type: 2}
   cooldown: 0
   speed: 10
+  maxProjectiles: 3
+  projectileCount: 0
 --- !u!143 &14313380
 CharacterController:
   m_ObjectHideFlags: 1
@@ -166,6 +168,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxProjectiles
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
