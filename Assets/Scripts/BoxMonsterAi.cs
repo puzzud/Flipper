@@ -94,6 +94,14 @@ public class BoxMonsterAi : MonoBehaviour {
       HeroEntity heroEntity = other.gameObject.GetComponent<HeroEntity>();
       if (heroEntity)
       {
+        // Before giving hero damage, go ahead and give monster damage too.
+        GameEntity monsterEntity = GetComponent<GameEntity>();
+        if (monsterEntity)
+        {
+          monsterEntity.takeDamage(1.0f);
+        }
+
+
         heroEntity.takeDamage(1.0f);
       }
       else
