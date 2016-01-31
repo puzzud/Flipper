@@ -20,7 +20,7 @@ public class HeroControl : MonoBehaviour {
     Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
     Vector3 dir = Input.mousePosition - pos;
     float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-    transform.rotation = Quaternion.AngleAxis(angle, forwardDir); 
+    transform.rotation = Quaternion.AngleAxis(angle - 90.0f, forwardDir); 
 
     // Hero Movement
     movement.x = Input.GetAxis("Horizontal") * speed;
