@@ -64,7 +64,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159806}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5403136
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -104,7 +104,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDirection: {x: 0.90119296, y: 0, z: 0.43341827}
+  startLocation: {x: 0, y: 0, z: 0}
   speed: 20
+  accelerationConstant: 0
+  maxDistance: 0
+  distance: 0
+  weapon: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -152,6 +157,10 @@ Prefab:
       propertyPath: speed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159806}
