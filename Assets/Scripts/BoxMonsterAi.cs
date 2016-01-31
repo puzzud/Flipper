@@ -87,6 +87,6 @@ public class BoxMonsterAi : MonoBehaviour {
 
   void OnTriggerEnter(Collider other)
   {
-    UnityEngine.Debug.Log("Collisino!!", this);
+    //UnityEngine.Debug.Log("Collisino!!", this);
   }
 }

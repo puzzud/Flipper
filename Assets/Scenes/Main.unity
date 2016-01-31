@@ -784,6 +784,8 @@ MonoBehaviour:
   - {fileID: 921241705}
   - {fileID: 1625445439}
   - {fileID: 432414556}
+  garbagePrefabs:
+  - {fileID: 199738, guid: 758af85081ac2a54693fe8a3551e35d1, type: 2}
 --- !u!114 &1860717614
 MonoBehaviour:
   m_ObjectHideFlags: 0

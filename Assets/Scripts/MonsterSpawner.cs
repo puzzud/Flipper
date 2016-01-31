@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 public class MonsterSpawner : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class MonsterSpawner : MonoBehaviour {
 
   public GameObject monsterPrefab;
   public GameObject[] spawnPoints;
+
+  public GameObject[] garbagePrefabs;
 
   void Awake()
   {
@@ -47,7 +50,7 @@ public class MonsterSpawner : MonoBehaviour {
       return null;
     }
 
-    return spawnPoints[Random.Range(0, spawnPoints.Length)];
+    return spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
   }
 
   bool spawnMonster()
@@ -75,10 +78,45 @@ public class MonsterSpawner : MonoBehaviour {
 
     Vector3 spawnPosition = spawnPoint.transform.position;
     spawnPosition.y += yOffset;
-    Instantiate(monsterPrefab, spawnPosition, spawnPoint.transform.rotation);
+    GameObject monster = Instantiate(monsterPrefab, spawnPosition, spawnPoint.transform.rotation) as GameObject;
+    if (monster)
+    {
+      giveMonsterGarbage( monster );
+    }
 
     setNextSpawnTime();
 
     return true;
+  }
+
+  public bool giveMonsterGarbage( GameObject monster )
+  {
+    GameEntity monsterEntity = monster.GetComponent<GameEntity>();
+    if (monster && (garbagePrefabs.Length > 0))
+    {
+      // TODO: Randomly give a monster a garbage item.
+      // Give each monster a garbage item.
+      GameObject garbagePrefab = garbagePrefabs[Random.Range(0, garbagePrefabs.Length - 1)];
+      GameObject garbage = Instantiate(garbagePrefab) as GameObject;
+      if (garbage == null)
+      {
+        UnityEngine.Debug.Log("Failed to create garbage.");
+      }
+      else
+      {
+        GameEntity garbageEntity = garbage.GetComponent<GameEntity>() as GameEntity;
+        if (garbageEntity)
+        {
+          garbageEntity.show(false);
+          monsterEntity.inventory.Add(garbageEntity);
+
+          garbage.transform.parent = monster.transform;
+
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 }

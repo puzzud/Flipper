@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameEntity : MonoBehaviour {
 
   public float speed = 5.0f;
+
+  public List<GameEntity> inventory;
+
+  bool active = true;
 
   // TODO: Not used? Needs improvement and refactor.
   public static bool getAbovePosition( GameObject gameObject, Vector3 position )
@@ -18,7 +23,7 @@ public class GameEntity : MonoBehaviour {
       // TODO: Using renderer might not be perfect.
       yOffset = gameObject.transform.position.y - renderer.bounds.min.y;
     }
-
+    
     position.y += yOffset;
 
     return true;
@@ -33,6 +38,20 @@ public class GameEntity : MonoBehaviour {
     transform.LookAt(lookAtStraightPosition);
 
     return true;
+  }
+
+  public void show(bool show)
+  {
+    Renderer _renderer = GetComponent<Renderer>();
+    if (_renderer)
+    {
+      _renderer.enabled = show;
+
+      // TODO: Probably back to base active on visibility.
+      active = show;
+    }
+
+    //UnityEngine.Debug.Log("no renderer");
   }
 
 	// Use this for initialization
