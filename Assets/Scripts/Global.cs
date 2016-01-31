@@ -7,6 +7,9 @@ public class Global : MonoBehaviour {
   public GameObject heroSpawnPoint;
   public GameObject hero;
 
+  public GameObject[] health;
+  public GameObject[] emptyHealth;
+
 	// Use this for initialization
 	void Start () {
     // TODO: Reuse for spawning....
@@ -30,4 +33,26 @@ public class Global : MonoBehaviour {
 	void Update () {
 	
 	}
+
+  public void hitHero(int livesLeft)
+  {
+    for (int i = 0; i < emptyHealth.Length; i++)
+    {
+      emptyHealth[i].SetActive(false);
+    }
+    for (int i = 0; i < livesLeft; i++)
+    {
+      health[i].SetActive(true);
+    }
+    for (int i = livesLeft; i < health.Length; i++)
+    {
+      health[i].SetActive(false);
+      emptyHealth[i].SetActive(true);
+    }
+  }
+
+  void gainHealth(int livesLeft)
+  {
+    //TODO if necessary
+  }
 }

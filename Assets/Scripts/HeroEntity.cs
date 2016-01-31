@@ -56,8 +56,16 @@ public class HeroEntity : GameEntity {
 
   public bool updateHealthUi()
   {
-    // TODO: Draw the correct number of full hearts verses empty hearts in GUI.
-    return false;
+    Global g = null;
+    Global[] globalList = GameObject.FindObjectsOfType(typeof(Global)) as Global[];
+    if (globalList.Length > 0)
+    {
+      g = globalList[0];
+    }
+
+    g.hitHero(Mathf.RoundToInt(health));
+
+    return true;
   }
 
   public bool setKnocking(int knockingTime, Vector3 knockingDirection)
