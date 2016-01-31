@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class MonsterSpawner : MonoBehaviour {
 
-  public float minInterval = 2.0f;
-  public float maxInterval = 4.0f;
+  public float minInterval = 1.0f;
+  public float maxInterval = 3.0f;
 
   Stopwatch stopWatch = new Stopwatch();
 
@@ -53,14 +53,53 @@ public class MonsterSpawner : MonoBehaviour {
     return spawnPoints[Random.Range(0, spawnPoints.Length - 1)];
   }
 
+  Vector3 getRandomSpawnPosition()
+  {
+    Vector3 minPosition = Vector3.zero;
+    Vector3 maxPosition = Vector3.zero;
+
+    Vector3 randomPosition;
+    foreach( GameObject spawnPoint in spawnPoints )
+    {
+      if (spawnPoint.transform.position.x < minPosition.x)
+      {
+        minPosition.x = spawnPoint.transform.position.x;
+      }
+
+      if (spawnPoint.transform.position.z < minPosition.z)
+      {
+        minPosition.z = spawnPoint.transform.position.z;
+      }
+
+
+      if (spawnPoint.transform.position.x > maxPosition.x)
+      {
+        maxPosition.x = spawnPoint.transform.position.x;
+      }
+
+      if (spawnPoint.transform.position.z > maxPosition.z)
+      {
+        maxPosition.z = spawnPoint.transform.position.z;
+      }
+    }
+
+    randomPosition.x = Random.Range(minPosition.x, maxPosition.x);
+    randomPosition.y = 0.0f;
+    randomPosition.z = Random.Range(minPosition.z, maxPosition.z);
+
+    return randomPosition;
+  }
+
   bool spawnMonster()
   {
-    GameObject spawnPoint = getRandomSpawnPoint();
-    if (spawnPoint == null)
-    {
-      UnityEngine.Debug.Log("Could not find a spawn point.", this);
-      return false;
-    }
+    Vector3 spawnPosition = getRandomSpawnPosition();
+
+    //GameObject spawnPoint = getRandomSpawnPoint();
+    //if (spawnPoint == null)
+    //{
+    //  UnityEngine.Debug.Log("Could not find a spawn point.", this);
+    //  return false;
+    //}
 
     // Get the distance between the origin of the monsterPrefab's rigid body (or self as fallback)
     // to its bottom and then spawn its above
@@ -76,9 +115,10 @@ public class MonsterSpawner : MonoBehaviour {
       yOffset = monsterPrefab.transform.position.y - renderer.bounds.min.y;
     }
 
-    Vector3 spawnPosition = spawnPoint.transform.position;
+    //Vector3 spawnPosition = spawnPoint.transform.position;
     spawnPosition.y += yOffset;
-    GameObject monster = Instantiate(monsterPrefab, spawnPosition, spawnPoint.transform.rotation) as GameObject;
+    // TODO: Orient the monster? Probably happens in its Start() or update.
+    GameObject monster = Instantiate(monsterPrefab, spawnPosition, Quaternion.identity) as GameObject;
     if (monster)
     {
       giveMonsterGarbage( monster );
