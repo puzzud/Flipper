@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11488396}
   - 114: {fileID: 11431076}
   - 64: {fileID: 6462592}
+  - 95: {fileID: 9584172}
   m_Layer: 0
   m_Name: Box Monster
   m_TagString: Untagged
@@ -64,7 +65,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149828}
-  m_Mesh: {fileID: 4300000, guid: 69c33457075ccbe48af7c8dc4041afd3, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3fdbd66707675b74b836e29d18a3a0c3, type: 3}
 --- !u!64 &6462592
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -76,7 +77,24 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: 69c33457075ccbe48af7c8dc4041afd3, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3fdbd66707675b74b836e29d18a3a0c3, type: 3}
+--- !u!95 &9584172
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da6fccb94df691f438b17c0e66137b6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11431076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +162,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4300000, guid: 3fdbd66707675b74b836e29d18a3a0c3, type: 3}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -169,6 +187,14 @@ Prefab:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Name
+      value: Box Monster1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: da6fccb94df691f438b17c0e66137b6b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149828}
