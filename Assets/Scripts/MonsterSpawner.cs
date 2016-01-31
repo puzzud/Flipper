@@ -121,7 +121,7 @@ public class MonsterSpawner : MonoBehaviour {
     spawnPosition.y += yOffset;
     // TODO: Orient the monster? Probably happens in its Start() or update.
     GameObject monster = Instantiate(monsterPrefab, spawnPosition, Quaternion.identity) as GameObject;
-    monster.transform.parent = parentObj.transform;
+    //monster.transform.parent = parentObj.transform;
     if (monster)
     {
       giveMonsterGarbage( monster );
