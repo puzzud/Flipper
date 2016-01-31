@@ -16,16 +16,16 @@ public class Global : MonoBehaviour {
     // Add the distance between transform.position and bounds.min.y to transform.position in order to move your object up so the bottom of the mesh's bounding box is on the plane.
     float yOffset = 0.0f;
 
-    /*Renderer renderer = heroPrefab.GetComponent<Renderer>();
+    Renderer renderer = heroPrefab.GetComponent<Renderer>();
     if (renderer)
     {
       // TODO: Using renderer might not be perfect.
       yOffset = heroPrefab.transform.position.y - renderer.bounds.min.y;
-    }*/
+    }
 
     Vector3 spawnPosition = heroSpawnPoint.transform.position;
     spawnPosition.y += yOffset;
-    //hero = Instantiate(heroPrefab, spawnPosition, heroSpawnPoint.transform.rotation) as GameObject;
+    hero = Instantiate(heroPrefab, spawnPosition, heroSpawnPoint.transform.rotation) as GameObject;
     // TODO: End reuse for spawning...
 	}
 	
