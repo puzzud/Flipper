@@ -4,6 +4,8 @@ using System.Collections;
 public class HeroControl : MonoBehaviour {
 
   CharacterController controller;
+  Animator animator;
+
   public float speed = 5.0f;
   public Vector3 forwardDir;
   Vector3 movement = Vector3.zero;
@@ -11,6 +13,10 @@ public class HeroControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     controller = GetComponent<CharacterController>();
+
+    // Animation.
+    animator = GetComponent<Animator>();
+    animator.Play("Idle");
 	}
 	
 	// Update is called once per frame
@@ -27,5 +33,15 @@ public class HeroControl : MonoBehaviour {
     movement.z = Input.GetAxis("Vertical") * speed;
 
     controller.Move(movement * Time.deltaTime);
+
+    // Animation
+    if (movement.magnitude > 0.0f)
+    {
+      animator.Play("Run");
+    }
+    else
+    {
+      animator.Play("Idle");
+    }
 	}
 }
