@@ -13,8 +13,8 @@ GameObject:
   - 143: {fileID: 14313380}
   - 114: {fileID: 11424174}
   - 64: {fileID: 6499062}
-  - 114: {fileID: 11483568}
   - 114: {fileID: 11491486}
+  - 114: {fileID: 11456592}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   forwardDir: {x: 0, y: 1, z: 0}
---- !u!114 &11483568
+--- !u!114 &11456592
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -100,10 +100,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 114896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ff39c084a5aa843b68a11cf82c5452, type: 3}
+  m_Script: {fileID: 11500000, guid: 5544bdc3d32b38842bd50bcb983e18eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
   speed: 5
+  inventory: []
 --- !u!114 &11491486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,6 +163,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: speed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

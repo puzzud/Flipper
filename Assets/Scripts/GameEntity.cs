@@ -4,14 +4,25 @@ using System.Collections.Generic;
 
 public class GameEntity : MonoBehaviour {
 
+  public float health;
+
   public float speed = 5.0f;
 
   public List<GameEntity> inventory;
 
-  bool active = true;
+  // TODO: Intended for garbage and other items in inventory.
+  //bool active = true;
+
+  void Start()
+  {
+    if (health <= 0)
+    {
+      health = 1.0f;
+    }
+  }
 
   // TODO: Not used? Needs improvement and refactor.
-  public static bool getAbovePosition( GameObject gameObject, Vector3 position )
+  /*public static bool getAbovePosition( GameObject gameObject, Vector3 position )
   {
     position = gameObject.transform.position;
 
@@ -27,7 +38,7 @@ public class GameEntity : MonoBehaviour {
     position.y += yOffset;
 
     return true;
-  }
+  }*/
 
   //! Make this GameEntity look at a GameObject without
   //! pivoting up or down (looks straight head but turns).
@@ -48,7 +59,7 @@ public class GameEntity : MonoBehaviour {
       _renderer.enabled = show;
 
       // TODO: Probably back to base active on visibility.
-      active = show;
+      //active = show;
     }
 
     //UnityEngine.Debug.Log("no renderer");
@@ -63,4 +74,12 @@ public class GameEntity : MonoBehaviour {
 	void Update () {
 	
 	}*/
+
+  virtual public bool takeDamage(float damageAmount)
+  {
+    health = 0.0f;
+    Destroy(gameObject);
+
+    return true;
+  }
 }

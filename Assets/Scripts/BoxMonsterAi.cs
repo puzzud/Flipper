@@ -87,6 +87,19 @@ public class BoxMonsterAi : MonoBehaviour {
 
   void OnTriggerEnter(Collider other)
   {
-    //UnityEngine.Debug.Log("Collisino!!", this);
+    //UnityEngine.Debug.Log("Collision with " + other.name);
+    // TODO: Maybe determine this object other by name?
+    if (other.name == "Hero(Clone)")
+    {
+      HeroEntity heroEntity = other.gameObject.GetComponent<HeroEntity>();
+      if (heroEntity)
+      {
+        heroEntity.takeDamage(1.0f);
+      }
+      else
+      {
+        UnityEngine.Debug.Log("Hero doesnt have hero entity.");
+      }
+    }
   }
 }
