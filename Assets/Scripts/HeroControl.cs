@@ -7,7 +7,6 @@ public class HeroControl : MonoBehaviour {
   Animator animator;
 
   public float speed = 5.0f;
-  public Vector3 forwardDir;
   Vector3 movement = Vector3.zero;
 
 	// Use this for initialization
@@ -26,7 +25,7 @@ public class HeroControl : MonoBehaviour {
     Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
     Vector3 dir = Input.mousePosition - pos;
     float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-    transform.rotation = Quaternion.AngleAxis(angle - 90.0f, forwardDir); 
+    transform.rotation = Quaternion.AngleAxis(angle, Vector3.up); 
 
     // Hero Movement
     movement.x = Input.GetAxis("Horizontal") * speed;
