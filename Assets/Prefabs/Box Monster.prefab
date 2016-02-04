@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11488396}
   - 114: {fileID: 11431076}
   - 65: {fileID: 6547354}
+  - 54: {fileID: 5471722}
   m_Layer: 0
   m_Name: Box Monster
   m_TagString: Untagged
@@ -95,6 +96,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161558}
   m_Mesh: {fileID: 4300000, guid: 4098a080fcee586478f2dd2dc1949297, type: 3}
+--- !u!54 &5471722
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149828}
+  serializedVersion: 2
+  m_Mass: 500
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 20
+  m_CollisionDetection: 0
 --- !u!64 &6454772
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -117,8 +133,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -39.2, y: 0.96, z: 0.61}
-  m_Center: {x: 0, y: 0.02, z: -0.03}
+  m_Size: {x: 7.11, y: 11.25, z: -6.09}
+  m_Center: {x: -0.16, y: 0.41, z: -1.16}
 --- !u!95 &9551112
 Animator:
   serializedVersion: 3
@@ -239,6 +255,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Avatar
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
