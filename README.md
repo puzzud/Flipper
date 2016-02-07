@@ -11,4 +11,5 @@ Trash is collected and converted via magic ritual to obtain (random?) power upgr
  - WASD + mouse reticle pointer
  - Duel stick + button
  
- 
+**Development**
+ - For improved Unity YAML format file merging during conflicts, it is necessary to set an environment variable called **UNITY_HOME** to the path to which Unity was installed. This project's local **.gitconfig** file is set up to use Unity's UnityYAMLMerge utility to handle file merging, particularly files which use its YAML format (Scene and Meta files).
