@@ -22,6 +22,8 @@
 *.ico binary
 
 *.fbx binary
+*.FBX binary
+*.max binary
 
 *.wav binary
 *.ogg binary
